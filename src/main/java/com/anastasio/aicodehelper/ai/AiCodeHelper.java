@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class AiCodeHelper {
     @Resource
     private ChatModel qwenChatModel;
+
     public String aiChat(String message) {
         UserMessage userMessage = new UserMessage(message);
         ChatResponse chatResponse = qwenChatModel.chat(userMessage);
