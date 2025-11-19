@@ -15,4 +15,10 @@ class AICodeHelperServiceTest {
         System.out.println(aiCodeHelperService.chat("说中文，说一下华南农业大学"));
     }
 
+    @Test
+    void test2() {
+        String request = "你好，我是程序员阿亮，学习编程第二年，帮我制定学习报告";
+        System.out.println(aiCodeHelperService.chatForReport(request));
+    }
+
 }
