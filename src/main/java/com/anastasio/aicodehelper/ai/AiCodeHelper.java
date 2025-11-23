@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AiCodeHelper {
     @Resource
-    private ChatModel qwenChatModel;
+    private ChatModel chatModel;
     private static final String SYSTEM_MESSAGE = """
             你是一个高级的AI代码助手，精通多种编程语言和技术栈。
             你能够理解复杂的技术问题，并提供清晰、简洁的解决方案。
@@ -23,14 +23,14 @@ public class AiCodeHelper {
     public String aiChat(String message) {
         SystemMessage systemMessage = SystemMessage.from(SYSTEM_MESSAGE);
         UserMessage userMessage = new UserMessage(message);
-        ChatResponse chatResponse = qwenChatModel.chat(systemMessage, userMessage);
+        ChatResponse chatResponse = chatModel.chat(systemMessage, userMessage);
         AiMessage aiMessage = chatResponse.aiMessage();
         log.info("AI Response: {}", aiMessage.text());
         return aiMessage.text();
     }
 
     public String chat(UserMessage userMessage) {
-        ChatResponse chatResponse = qwenChatModel.chat(userMessage);
+        ChatResponse chatResponse = chatModel.chat(userMessage);
         AiMessage aiMessage = chatResponse.aiMessage();
         log.info("AI Response: {}", aiMessage.text());
         return aiMessage.text();

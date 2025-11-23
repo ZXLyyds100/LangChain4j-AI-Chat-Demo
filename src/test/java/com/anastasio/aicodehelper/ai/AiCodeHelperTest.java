@@ -31,4 +31,10 @@ class AiCodeHelperTest {
     void chatWithRag() {
         System.out.println(aiCodeHelperService.chat("说中文，说一下agrife") );
     }
+    @Test
+    void chatMcp() {
+        String result = aiCodeHelperService.chat("联网搜索关于最新AI技术发展趋势");
+        System.out.println(result);
+    }
+
 }
