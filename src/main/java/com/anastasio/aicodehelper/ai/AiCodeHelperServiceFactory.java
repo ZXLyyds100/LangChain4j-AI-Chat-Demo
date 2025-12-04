@@ -31,7 +31,7 @@ public class AiCodeHelperServiceFactory {
                 .chatMemory(chatMemory)
                 .chatModel(chatModel)
                 .streamingChatModel(qwenStreamingChatModel)
-                .chatMemoryProvider(memroyId -> MessageWindowChatMemory.withMaxMessages(10))
+                .chatMemoryProvider(memoryId -> MessageWindowChatMemory.withMaxMessages(10))
                 .contentRetriever(contentRetriever)
                 .toolProvider(mcpToolProvider)
                 .build();
